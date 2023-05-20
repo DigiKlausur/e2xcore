@@ -3,7 +3,7 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "e2xgrader-base-app"
+name = "e2xcore"
 description = "An template for a server app for e2xgrader"
 readme = "README.md"
 requires-python = ">=3.8"
@@ -26,8 +26,8 @@ dynamic = ["version"]
 
 [project.urls]
 Documentation = "https://e2x.inf.h-brs.de"
-Issues = "https://github.com/Digiklausur/e2xgrader_base_app/issues"
-Source = "https://github.com/Digiklausur/e2xgrader_base_app"
+Issues = "https://github.com/Digiklausur/e2xcore/issues"
+Source = "https://github.com/Digiklausur/e2xcore"
 
 [project.optional-dependencies]
 dev = [
@@ -37,7 +37,7 @@ dev = [
 ]
 
 [tool.hatch.version]
-path = "e2xgrader_base_app/__version__.py"
+path = "e2xcore/__version__.py"
 
 [tool.tbump]
 # Uncomment this if your project is hosted on GitHub:
@@ -61,7 +61,7 @@ tag_template = "v{new_version}"
 
 # Files with the version present
 [[tool.tbump.file]]
-src = "e2xgrader_base_app/__version__.py"
+src = "e2xcore/__version__.py"
 
 [tool.ruff]
 line-length = 100

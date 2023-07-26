@@ -1,4 +1,7 @@
+from nbgrader.server_extensions.formgrader.base import BaseApiHandler
 from notebook.base.handlers import IPythonHandler
+
+from ..api import E2xAPI
 
 
 class E2xHandler(IPythonHandler):
@@ -17,3 +20,12 @@ class E2xHandler(IPythonHandler):
     def render(self, name, **ns):
         template = self.jinja_env.get_template(name)
         return template.render(**ns)
+
+
+class E2xApiHandler(BaseApiHandler):
+    @property
+    def api(self):
+        level = self.log.level
+        api = E2xAPI(self.coursedir, self.authenticator, parent=self.coursedir.parent)
+        api.log_level = level
+        return api

@@ -1,8 +1,13 @@
 import abc
 from typing import Any, Dict, List, Tuple
 
-from notebook.base.handlers import IPythonHandler
-from notebook.utils import url_path_join as ujoin
+try:
+    from notebook.base.handlers import IPythonHandler
+    from notebook.utils import url_path_join as ujoin
+except ImportError:
+    from jupyter_server.base.handlers import JupyterHandler as IPythonHandler
+    from jupyter_server.utils import url_path_join as ujoin
+
 from traitlets.config import Application
 
 
@@ -10,6 +15,10 @@ class BaseApp(Application):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.log = self.parent.log
+        if self.parent.name == "jupyter-notebook":
+            self.update_tornado_settings(dict(root_dir = self.parent.notebook_dir))
+        else:
+            self.update_tornado_settings(dict(root_dir = self.parent.root_dir))
 
     @property
     def webapp(self):

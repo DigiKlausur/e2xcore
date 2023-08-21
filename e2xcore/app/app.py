@@ -16,9 +16,9 @@ class BaseApp(Application):
         super().__init__(**kwargs)
         self.log = self.parent.log
         if self.parent.name == "jupyter-notebook":
-            self.update_tornado_settings(dict(root_dir = self.parent.notebook_dir))
+            self.update_tornado_settings(dict(root_dir=self.parent.notebook_dir))
         else:
-            self.update_tornado_settings(dict(root_dir = self.parent.root_dir))
+            self.update_tornado_settings(dict(root_dir=self.parent.root_dir))
 
     @property
     def webapp(self):

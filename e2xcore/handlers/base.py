@@ -1,5 +1,9 @@
 from nbgrader.server_extensions.formgrader.base import BaseApiHandler
-from notebook.base.handlers import IPythonHandler
+
+try:
+    from notebook.base.handlers import IPythonHandler
+except ImportError:
+    from jupyter_server.base.handlers import JupyterHandler as IPythonHandler
 
 from ..api import E2xAPI
 

@@ -2,6 +2,14 @@ import re
 from typing import Any, Dict, List
 from urllib.parse import parse_qsl, urlencode, urlparse
 
+from nbgrader.apps import NbGrader
+
+
+def get_nbgrader_config():
+    nbgrader = NbGrader()
+    nbgrader.initialize([])
+    return nbgrader.config
+
 
 def format_url(url: str, params: Dict[str, Any]) -> str:
     """Join a url with search parameters

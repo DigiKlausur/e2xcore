@@ -20,7 +20,7 @@ classifiers=[
     "Programming Language :: Python :: 3.11"
 ]
 dependencies = [
-    "notebook>=6,<7",
+    "nbgrader>=0.8,<0.9",
 ]
 dynamic = ["version"]
 
@@ -44,7 +44,7 @@ path = "e2xcore/__version__.py"
 # github_url = "https://github.com/<user or organization>/<project>/"
 
 [tool.tbump.version]
-current = "0.0.1"
+current = "0.0.4"
 
 regex = '''
   (?P<major>\d+)

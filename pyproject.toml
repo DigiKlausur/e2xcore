@@ -44,7 +44,7 @@ path = "e2xcore/__version__.py"
 # github_url = "https://github.com/<user or organization>/<project>/"
 
 [tool.tbump.version]
-current = "0.1.0-rc0"
+current = "0.1.0"
 
 regex = '''
   (?P<major>\d+)

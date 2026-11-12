@@ -52,7 +52,7 @@ regex = '''
   (?P<minor>\d+)
   \.
   (?P<patch>\d+)
-  (?P<dev>-dev\d+)?
+  (-(?P<rc>rc\d+))?
   '''
 
 [tool.tbump.git]
